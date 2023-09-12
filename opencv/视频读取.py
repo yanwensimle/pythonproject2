@@ -1,15 +1,16 @@
-import cv2
+import cv2 as cv
 
 # 读取视频
-video = cv2.VideoCapture(r"D:\img\01.mp4")
-# 获取视频对象的帧数
-fps = video.get(cv2.CAP_PROP_FPS)
-# 设定循环条件
-while video.isOpened():
-    _, frame = video.read()
-    cv2.imshow("video", frame)
-    # 设置退出条件是输入'q'
-    if cv2.waitKey(int(fps)) in [ord('q'), 27]:
+cap = cv.VideoCapture(r"D:\img\01.mp4")
+
+# 设定循环条件,如果能够正常读取到视频，则cap.isOpened()是true
+while cap.isOpened():
+    ret, frame = cap.read()
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    rgb = cv.cvtColor(frame, cv.COLOR_RGB2RGBA)
+    cv.imshow('frame', gray)
+    cv.imshow('frame2', rgb)
+    if cv.waitKey(75) == ord('q'):
         break
-cv2.destroyAllWindows()
-video.release()
+cap.release()
+cv.destroyAllWindows()
