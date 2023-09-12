@@ -10,3 +10,4 @@ cv2.imshow("gray", gray)
 cv2.waitKey(0)
 # 关闭所有显示窗口
 cv2.destroyAllWindows()
+
