@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 # 读取图像，第一种是正常读取，第二种是读取灰度图像
-# 通过imread函数读取图片信息
+# 通过imread函数读取图片信息,第一个参数为图片地址，第二个参数为图像格式：1为彩色是默认值，0为灰色，-1包括alpha通道
 img = cv.imread(r"D:\img\02.jpg")
 gray = cv.imread(r"D:\img\02.jpg", 0)
 # cv.namedWindow('image', cv.WINDOW_NORMAL)
